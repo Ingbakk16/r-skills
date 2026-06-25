@@ -76,5 +76,4 @@ Si cambiás un `SKILL.md`, volvé a copiarlo al directorio de skills para que el
 ## Notas
 
 - Los 7 skills están escritos en español.
-- El skill de trabajo incluye `dplyr`, `tidyr`, pivots y joins porque el libro los usa como parte del flujo normal de análisis.
 - Si tu entorno usa otra ruta para skills, ajustá los pasos anteriores a esa ubicación.
