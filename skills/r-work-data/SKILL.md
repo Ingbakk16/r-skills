@@ -1,6 +1,6 @@
 ---
 name: r-work-data
-description: Skill en español para trabajar datos ordenados en R siguiendo Introducción a la Programación II: select, filter, mutate, group_by, summarise, reframe, pivot_longer, pivot_wider y joins.
+description: Skill en español para transformar datos ordenados en R: select, filter, mutate, group_by, summarise, reframe, pivot_longer, pivot_wider y joins.
 license: MIT
 ---
 
@@ -51,6 +51,46 @@ Ayudar a resolver tareas de análisis con `dplyr` y `tidyr` usando pasos claros,
 - `dplyr::full_join()`
 - `dplyr::inner_join()`
 - `dplyr::anti_join()`
+
+## Ejemplos de referencia
+
+### Proporción aleta/pico
+
+```r
+pinguinos |> 
+  dplyr::filter(especie != "Papua") |> 
+  dplyr::mutate(proporcion_aleta_pico = largo_aleta_mm / largo_pico_mm) |> 
+  dplyr::group_by(especie) |> 
+  dplyr::summarise(promedio = mean(proporcion_aleta_pico, na.rm = TRUE))
+```
+
+### Resumir estaciones meteorológicas
+
+```r
+datos_estaciones |> 
+  dplyr::group_by(estacion) |> 
+  dplyr::summarise(
+    cantidad = dplyr::n(),
+    media_temp = mean(temperatura_abrigo_150cm, na.rm = TRUE)
+  )
+```
+
+### Pasar de ancho a largo
+
+```r
+paises_largo <- tidyr::pivot_longer(
+  paises_ancho,
+  cols = c(starts_with("pob"), starts_with("esperanza"), starts_with("pib_per")),
+  names_to = "variable_anio",
+  values_to = "valor"
+)
+```
+
+### Unir tablas de países y CO2
+
+```r
+dplyr::full_join(paises_2007, co2_2007, by = "pais")
+```
 
 ## Patrones clave
 

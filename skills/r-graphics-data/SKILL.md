@@ -1,6 +1,6 @@
 ---
 name: r-graphics-data
-description: Skill en español para graficar datos en R con ggplot2 siguiendo Introducción a la Programación II: capas, aes, geoms, escalas, facetas y gráficos derivados de resúmenes.
+description: Skill en español para graficar datos en R con ggplot2: capas, aes, geoms, escalas, facetas y gráficos derivados de resúmenes.
 license: MIT
 ---
 
@@ -48,6 +48,52 @@ Traducir datos a gráficos por capas, eligiendo la geometría y las estéticas a
 - `ggplot2::geom_violin()`
 - `ggplot2::facet_wrap()`
 - `ggplot2::facet_grid()`
+
+## Ejemplos de referencia
+
+### Esperanza de vida a lo largo del tiempo
+
+```r
+paises |> 
+  dplyr::group_by(continente, anio) |> 
+  dplyr::summarise(esperanza_de_vida_media = mean(esperanza_de_vida)) |> 
+  ggplot(aes(anio, esperanza_de_vida_media)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+### Gráfico por continente
+
+```r
+ggplot(paises, aes(anio, esperanza_de_vida)) +
+  geom_line(aes(color = continente, group = pais)) +
+  geom_point()
+```
+
+### Distribución de precios de diamantes
+
+```r
+ggplot(diamantes, aes(claridad, precio)) +
+  geom_boxplot()
+```
+
+### Facetas por color
+
+```r
+ggplot(diamantes, aes(quilate, precio)) +
+  geom_point(aes(color = color)) +
+  facet_wrap(~ color)
+```
+
+### Temperatura mensual
+
+```r
+datos_estaciones |> 
+  dplyr::group_by(estacion, mes = lubridate::floor_date(fecha, "month")) |> 
+  dplyr::summarise(temperatura_media = mean(temperatura_abrigo_150cm, na.rm = TRUE)) |> 
+  ggplot(aes(mes, temperatura_media, color = estacion)) +
+  geom_line()
+```
 
 ## Patrones clave
 

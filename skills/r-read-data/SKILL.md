@@ -1,6 +1,6 @@
 ---
 name: r-read-data
-description: Skill en español para leer datos en R siguiendo las prácticas de Introducción a la Programación II: descarga reproducible, importación de CSV/XLSX, inspección de estructura y verificación de tipos antes de analizar.
+description: Skill en español para leer datos en R: descarga reproducible, importación de CSV/XLSX, inspección de estructura y verificación de tipos antes de analizar.
 license: MIT
 ---
 
@@ -44,7 +44,31 @@ Leer datos de forma programática, validar su estructura y detectar problemas an
 - `str()`
 - `dplyr::glimpse()`
 
-## Ejemplos
+## Ejemplos de referencia
+
+### Descargar y leer pingüinos
+
+```r
+pinguinos_url <- "https://zenodo.org/records/12772944/files/pinguinos.csv?download=1"
+pinguinos_archivo <- "datos/pinguinos.csv"
+
+download.file(pinguinos_url, pinguinos_archivo)
+pinguinos <- readr::read_csv(pinguinos_archivo)
+str(pinguinos)
+```
+
+### Leer estaciones meteorológicas
+
+```r
+nh0437_url <- "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0437.csv"
+nh0437_archivo <- "datos/NH0437.csv"
+
+download.file(nh0437_url, nh0437_archivo)
+nh0437 <- readr::read_csv(nh0437_archivo)
+dplyr::glimpse(nh0437)
+```
+
+## Ejemplos generales
 
 ```r
 url_datos <- "https://ejemplo.org/datos.csv"

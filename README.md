@@ -1,18 +1,27 @@
 # Skills para trabajar en R
 
-Este repositorio contiene 3 skills en español basados en las prácticas del libro *Introducción a la Programación II*:
+Este repositorio contiene 7 skills en español:
 
 - `r-read-data`: leer y validar datos
 - `r-work-data`: transformar datos ordenados
 - `r-graphics-data`: graficar datos con `ggplot2`
+- `r-funciones`: crear, usar y probar funciones
+- `r-paquetes`: crear y desarrollar paquetes de R
+- `r-documentacion`: documentar funciones, paquetes y proyectos
+- `r-testing-dependencias`: declarar dependencias y escribir tests
 
 ## Estructura
 
 ```text
+skills/INDEX.md
 skills/
   r-read-data/SKILL.md
   r-work-data/SKILL.md
   r-graphics-data/SKILL.md
+  r-funciones/SKILL.md
+  r-paquetes/SKILL.md
+  r-documentacion/SKILL.md
+  r-testing-dependencias/SKILL.md
 ```
 
 ## Requisitos
@@ -24,7 +33,7 @@ skills/
 
 1. Descargá este repositorio como ZIP o clonalo con Git.
 2. Descomprimilo o abrilo en tu máquina.
-3. Verificá que exista la carpeta `skills/` con sus 3 subcarpetas.
+3. Verificá que exista la carpeta `skills/` con sus 7 subcarpetas.
 
 ## Cómo instalarlo en el directorio de skills
 
@@ -36,7 +45,13 @@ skills/
 ~/.agents/skills/r-read-data/SKILL.md
 ~/.agents/skills/r-work-data/SKILL.md
 ~/.agents/skills/r-graphics-data/SKILL.md
+~/.agents/skills/r-funciones/SKILL.md
+~/.agents/skills/r-paquetes/SKILL.md
+~/.agents/skills/r-documentacion/SKILL.md
+~/.agents/skills/r-testing-dependencias/SKILL.md
 ```
+
+4. Si querés conservar la portada general, mantené también `skills/INDEX.md` dentro del repositorio.
 
 ## Cómo usarlo
 
@@ -45,8 +60,14 @@ Una vez instalados, podés pedir tareas como estas:
 - “Leé este CSV y revisá su estructura”
 - “Filtrá y resumí esta tabla por especie”
 - “Hacé un gráfico de líneas con facetas”
+- “Creá un paquete y agregale una función”
+- “Agregá tests y revisá dependencias del paquete”
 
 El agente debería activar el skill correspondiente según la tarea.
+
+## Índice general
+
+Si querés una vista rápida de todo el paquete, abrí `skills/INDEX.md`. Ahí está el orden recomendado de uso y un resumen de cada skill.
 
 ## Actualización
 
@@ -54,6 +75,6 @@ Si cambiás un `SKILL.md`, volvé a copiarlo al directorio de skills para que el
 
 ## Notas
 
-- Los 3 skills están escritos en español.
+- Los 7 skills están escritos en español.
 - El skill de trabajo incluye `dplyr`, `tidyr`, pivots y joins porque el libro los usa como parte del flujo normal de análisis.
 - Si tu entorno usa otra ruta para skills, ajustá los pasos anteriores a esa ubicación.
